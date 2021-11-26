@@ -1,0 +1,19 @@
+{
+    "name": "ryodevz/phpexport",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Ryodevz\\Phpexport\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "RyoDevz",
+            "email": "ytryo789@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "dompdf/dompdf": "dev-master"
+    }
+}
