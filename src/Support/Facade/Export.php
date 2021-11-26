@@ -8,9 +8,9 @@ use Ryodevz\Phpexport\Support\PDF;
 
 class Export
 {
-    public function makeExcel(string $file)
+    public function makeExcel(string $file, bool $isHttp = false)
     {
-        return new Excel($file);
+        return new Excel($file, $isHttp);
     }
 
     public function makePDF(string $file, bool $isHttp = false)
