@@ -22,9 +22,9 @@ class Excel
 
     protected function response()
     {
-        echo $this->body;
+        $this->setHeaders();
 
-        return $this->setHeaders();
+        echo $this->body;
     }
 
     protected function setHeaders()
