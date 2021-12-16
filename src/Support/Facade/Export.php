@@ -8,18 +8,18 @@ use Ryodevz\Phpexport\Support\PDF;
 
 class Export
 {
-    public function makeExcel(string $file, bool $isHttp = false)
+    public function makeExcel($body)
     {
-        return new Excel($file, $isHttp);
+        return new Excel($body);
     }
 
-    public function makePDF(string $file, bool $isHttp = false)
+    public function makePDF($body)
     {
-        return new PDF($file, $isHttp);
+        return new PDF($body);
     }
 
-    public function makeWord(string $file, bool $isHttp = false)
+    public function makeWord($body)
     {
-        return new MSWord($file, $isHttp);
+        return new MSWord($body);
     }
 }

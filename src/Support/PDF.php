@@ -6,20 +6,15 @@ use Dompdf\Dompdf;
 
 class PDF extends PDFConfig
 {
-    protected $file;
-
     protected $body;
-
-    protected $isHttp;
 
     protected $attachment;
 
-    protected $filename = 'document.pdf';
+    protected $filename;
 
-    public function __construct($file, $isHttp)
+    public function __construct($body)
     {
-        $this->file = $file;
-        $this->isHttp = $isHttp;
+        $this->body = $body;
         $this->config = new PDFConfig;
     }
 
@@ -30,8 +25,10 @@ class PDF extends PDFConfig
         return $this->response(1);
     }
 
-    public function view()
+    public function preview($newfilename = 'document.pdf')
     {
+        $this->filename = $newfilename;
+
         return $this->response(0);
     }
 
@@ -44,8 +41,6 @@ class PDF extends PDFConfig
 
     protected function setup()
     {
-        $this->setBody();
-
         $dompdf = $this->domPDF();
         $dompdf->loadHtml($this->body);
         $dompdf->setPaper('A4', $this->configViewType);
@@ -57,14 +52,5 @@ class PDF extends PDFConfig
     protected function domPDF()
     {
         return new Dompdf;
-    }
-
-    protected function setBody()
-    {
-        if ($this->isHttp) {
-            return $this->body = file_get_contents($this->file);
-        }
-
-        return $this->body = require $this->file;
     }
 }
