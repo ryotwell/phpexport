@@ -14,7 +14,7 @@ class HTMLTODOC
 	 * 
 	 * @return void 
 	 */
-	function __construct()
+	public function __construct()
 	{
 		$this->title = '';
 		$this->htmlHead = '';
@@ -26,7 +26,7 @@ class HTMLTODOC
 	 * 
 	 * @param String $docfile  
 	 */
-	function setDocFileName($docfile)
+	private function setDocFileName($docfile)
 	{
 		$this->docFile = $docfile;
 		if (!preg_match("/\.doc$/i", $this->docFile) && !preg_match("/\.docx$/i", $this->docFile)) {
@@ -40,7 +40,7 @@ class HTMLTODOC
 	 * 
 	 * @param String $title  
 	 */
-	function setTitle($title)
+	public function setTitle($title)
 	{
 		$this->title = $title;
 	}
@@ -50,7 +50,7 @@ class HTMLTODOC
 	 * 
 	 * @return String 
 	 */
-	function getHeader()
+	private function getHeader()
 	{
 		$return = <<<EOH
         <html xmlns:v="urn:schemas-microsoft-com:vml" 
@@ -139,7 +139,7 @@ EOH;
 	 * 
 	 * @return String 
 	 */
-	function getFotter()
+	private function getFotter()
 	{
 		return "</body></html>";
 	}
@@ -152,7 +152,7 @@ EOH;
 	 * @param Boolean $download :: Wheather to download the file or save the file 
 	 * @return boolean  
 	 */
-	function createDoc($html, $file, $download = false)
+	public function createDoc($html, $file, $download = false)
 	{
 		if (is_file($html)) {
 			$html = @file_get_contents($html);
@@ -183,7 +183,7 @@ EOH;
 	 * @return void 
 	 * @access Private 
 	 */
-	function _parseHtml($html)
+	private function _parseHtml($html)
 	{
 		$html = preg_replace("/<!DOCTYPE((.|\n)*?)>/ims", "", $html);
 		$html = preg_replace("/<script((.|\n)*?)>((.|\n)*?)<\/script>/ims", "", $html);
@@ -209,7 +209,7 @@ EOH;
 	 * @return void 
 	 * @access boolean True on success else false 
 	 */
-	function write_file($file, $content, $mode = "w")
+	private function write_file($file, $content, $mode = "w")
 	{
 		$fp = @fopen($file, $mode);
 		if (!is_resource($fp)) {
