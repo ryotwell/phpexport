@@ -1,10 +1,10 @@
 <?php
 
-namespace Ryodevz\Phpexport\Support\Facade;
+namespace Ryotwell\Phpexport\Support\Facade;
 
-use Ryodevz\Phpexport\Support\Excel;
-use Ryodevz\Phpexport\Support\MSWord;
-use Ryodevz\Phpexport\Support\PDF;
+use Ryotwell\Phpexport\Support\Excel;
+use Ryotwell\Phpexport\Support\MSWord;
+use Ryotwell\Phpexport\Support\PDF;
 
 class Export
 {

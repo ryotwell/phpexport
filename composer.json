@@ -1,14 +1,14 @@
 {
-    "name": "ryodevz/phpexport",
+    "name": "ryotwell/phpexport",
     "type": "library",
     "autoload": {
         "psr-4": {
-            "Ryodevz\\Phpexport\\": "src/"
+            "Ryotwell\\Phpexport\\": "src/"
         }
     },
     "authors": [
         {
-            "name": "RyoDevz",
+            "name": "Ryotwell",
             "email": "ytryo789@gmail.com"
         }
     ],

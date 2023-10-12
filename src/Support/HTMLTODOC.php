@@ -1,6 +1,6 @@
 <?php
 
-namespace Ryodevz\Phpexport\Support;
+namespace Ryotwell\Phpexport\Support;
 
 class HTMLTODOC
 {
